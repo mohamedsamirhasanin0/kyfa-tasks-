@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+</head>
+<body>
+  <h1>Register</h1>
+
+  <form method="post" action="#">
+    <fieldset>
+      <legend>Account</legend>
+
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required minlength="4" maxlength="20" pattern="[A-Za-z0-9._-]{4,20}" title="Use 4 to 20 letters, numbers, dots, underscores, or dashes" />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required minlength="8" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal</legend>
+
+      <div>
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="full_name" required />
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" title="Enter a valid phone number" />
+      </div>
+
+      <div>
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" required />
+      </div>
+
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="18" max="100" />
+      </div>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <label><input type="radio" name="gender" value="male" required /> Male</label>
+        <label><input type="radio" name="gender" value="female" /> Female</label>
+      </fieldset>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+
+      <div>
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+            <optgroup label="Africa">
+            <option value="eg">Egypt</option>
+            <option value="ng">Nigeria</option>
+            <option value="za">South Africa</option>
+          </optgroup>
+            <optgroup label="Asia">
+            <option value="jp">Japan</option>
+            <option value="cn">China</option>
+            <option value="in">India</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="uk">United Kingdom</option>
+            <option value="fr">France</option>
+            <option value="de">Germany</option>
+          </optgroup>
+          <optgroup label="North America">
+            <option value="ca">Canada</option>
+            <option value="us">United States</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Hobbies</legend>
+        <label><input type="checkbox" name="hobbies" value="coding" /> Coding</label>
+        <label><input type="checkbox" name="hobbies" value="gaming" /> Gaming</label>
+        <label><input type="checkbox" name="hobbies" value="reading" /> Reading</label>
+      </fieldset>
+
+      <div>
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes">Share any additional information.</textarea>
+      </div>
+
+    </fieldset>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <table border="7">
+    <caption>Sample Submitted Entries</caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Mohamed</th>
+        <td>mohamed@example.com</td>
+        <td>Egypt</td>
+      </tr>
+      <tr>
+        <th scope="row">Ahmed</th>
+        <td>ahmed@example.com</td>
+        <td>South Africa</td>
+      </tr>
+      <tr>
+        <th scope="row">Omar</th>
+        <td>omar@example.com</td>
+        <td>Germany</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

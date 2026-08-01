@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+</head>
+<body>
+  <form action="#" method="post">
+    <div>
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="full_name" required minlength="2" maxlength="50" />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" />
+    </div>
+
+    <div>
+      <label for="website">Website</label>
+      <input type="url" id="website" name="website" />
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" />
+    </div>
+
+    <div>
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="1" max="120" />
+    </div>
+
+    <div>
+      <label for="birthday">Birthday</label>
+      <input type="date" id="birthday" name="birthday" />
+    </div>
+
+    <div>
+      <label for="files">Upload Files</label>
+      <input type="file" id="files" name="files" multiple />
+    </div>
+
+    <div>
+      <input type="hidden" name="source" value="signup-form" />
+    </div>
+
+    <div>
+      <label for="code">5 of Digit Code</label>
+      <input type="text" id="code" name="code" pattern="\d{5}" title="Enter exactly 5 digits" />
+    </div>
+
+    <div>
+      <label><input type="radio" name="gender" value="male" /> Male</label>
+      <label><input type="radio" name="gender" value="female" /> Female</label>
+    </div>
+
+    <div>
+      <label><input type="checkbox" name="hobbies" value="coding" /> Coding</label>
+      <label><input type="checkbox" name="hobbies" value="gaming" /> Gaming</label>
+      <label><input type="checkbox" name="hobbies" value="reading" /> Reading</label>
+    </div>
+
+    <div>
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <optgroup label="Africa">
+          <option value="eg">Egypt</option>
+          <option value="ng">Nigeria</option>
+          <option value="za">South Africa</option>
+        </optgroup>
+        <optgroup label="Europe">
+          <option value="uk">United Kingdom</option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+        </optgroup>
+        <optgroup label="Asia">
+          <option value="jp">Japan</option>
+          <option value="in">India</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div>
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes">Write your notes here...</textarea>
+    </div>
+
+    <div>
+      <button type="submit">Submit</button>
+      <button type="button">Cancel</button>
+    </div>
+  </form>
+</body>
+</html>
