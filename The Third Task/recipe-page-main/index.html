@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Simple Omelette Recipe</title>
+
+  <style>
+
+    /* تحميل الخطوط */
+    @font-face {
+      font-family: "Outfit";
+      src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf");
+    }
+
+    @font-face {
+      font-family: "Young Serif";
+      src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf");
+    }
+
+    /* إعدادات عامة */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f3e5d8;
+      font-family: "Outfit", sans-serif;
+      font-size: 16px;
+      color: #5f564d;
+      display: flex;
+      justify-content: center;
+      padding: 80px 16px 40px;
+      min-height: 100vh;
+    }
+
+    /* البطاقة الرئيسية */
+    .card {
+      background: white;
+      border-radius: 24px;
+      width: 740px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    /* الصورة */
+    .hero-wrap {
+      padding: 32px 32px 0;
+    }
+
+    .hero-wrap img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* المحتوى */
+    .content {
+      padding: 36px 40px 40px;
+    }
+
+    /* العنوان الرئيسي */
+    h1 {
+      font-family: "Young Serif", serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #312e2c;
+      margin-bottom: 20px;
+    }
+
+    /* الوصف */
+    .description {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #5f564d;
+      margin-bottom: 28px;
+    }
+
+    /* صندوق وقت التحضير */
+    .prep-box {
+      background-color: #fff7fb;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+
+    .prep-box h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #7b284f;
+      margin-bottom: 14px;
+    }
+
+    .prep-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .prep-box ul li {
+      font-size: 15px;
+      color: #5f564d;
+      padding-left: 8px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .prep-box ul li::before {
+      content: "•";
+      color: #7b284f;
+      flex-shrink: 0;
+    }
+
+    /* الخط الفاصل */
+    hr {
+      border: none;
+      border-top: 1px solid #e4d5c8;
+      margin: 28px 0;
+    }
+
+    /* عناوين الأقسام */
+    h2.section-title {
+      font-family: "Young Serif", serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #854632;
+      margin-bottom: 18px;
+    }
+
+    /* قائمة المكونات */
+    ul.ingredients {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    ul.ingredients li {
+      font-size: 15px;
+      color: #5f564d;
+      padding-left: 8px;
+      display: flex;
+      gap: 16px;
+    }
+
+    ul.ingredients li::before {
+      content: "•";
+      color: #854632;
+      flex-shrink: 0;
+    }
+
+    /* قائمة الخطوات */
+    ol.instructions {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      counter-reset: step-counter;
+      margin-bottom: 28px;
+    }
+
+    ol.instructions li {
+      counter-increment: step-counter;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #5f564d;
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    ol.instructions li span {
+      display: inline;
+    }
+
+    ol.instructions li::before {
+      content: counter(step-counter) ".";
+      font-weight: 700;
+      color: #854632;
+      flex-shrink: 0;
+      min-width: 20px;
+    }
+
+    ol.instructions li strong {
+      color: #312e2c;
+    }
+
+    /* جدول التغذية */
+    .nutrition-note {
+      font-size: 15px;
+      color: #5f564d;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table tr {
+      border-bottom: 1px solid #e4d5c8;
+    }
+
+    table tr:last-child {
+      border-bottom: none;
+    }
+
+    table td {
+      padding: 12px 0;
+      font-size: 15px;
+      color: #5f564d;
+    }
+
+    table td:last-child {
+      font-weight: 700;
+      color: #854632;
+      padding-left: 32px;
+    }
+
+    /* شاشات صغيرة */
+    @media (max-width: 600px) {
+      body {
+        padding: 0;
+      }
+
+      .card {
+        border-radius: 0;
+        width: 100%;
+      }
+
+      .hero-wrap {
+        padding: 0;
+      }
+
+      .hero-wrap img {
+        border-radius: 0;
+      }
+
+      .content {
+        padding: 28px 20px 32px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2.section-title {
+        font-size: 22px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- الصورة -->
+    <div class="hero-wrap">
+      <img src="./assets/images/image-omelette.jpeg" alt="صورة الأومليت">
+    </div>
+
+    <!-- المحتوى -->
+    <div class="content">
+
+      <h1>Simple Omelette Recipe</h1>
+
+      <p class="description">
+        An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs
+        cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+      </p>
+
+      <!-- وقت التحضير -->
+      <div class="prep-box">
+        <h2>Preparation time</h2>
+        <ul>
+          <li><strong>Total:</strong> &nbsp;Approximately 10 minutes</li>
+          <li><strong>Preparation:</strong> &nbsp;5 minutes</li>
+          <li><strong>Cooking:</strong> &nbsp;5 minutes</li>
+        </ul>
+      </div>
+
+      <!-- المكونات -->
+      <h2 class="section-title">Ingredients</h2>
+      <ul class="ingredients">
+        <li>2-3 large eggs</li>
+        <li>Salt, to taste</li>
+        <li>Pepper, to taste</li>
+        <li>1 tablespoon of butter or oil</li>
+        <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+      </ul>
+
+      <hr>
+
+      <!-- الخطوات -->
+      <h2 class="section-title">Instructions</h2>
+      <ol class="instructions">
+        <li><span><strong>Beat the eggs:</strong> In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture.</span></li>
+        <li><span><strong>Heat the pan:</strong> Place a non-stick frying pan over medium heat and add butter or oil.</span></li>
+        <li><span><strong>Cook the omelette:</strong> Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface.</span></li>
+        <li><span><strong>Add fillings (optional):</strong> When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen fillings over one half of the omelette.</span></li>
+        <li><span><strong>Fold and serve:</strong> As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for another minute, then slide it onto a plate.</span></li>
+        <li><span><strong>Enjoy:</strong> Serve hot, with additional salt and pepper if needed.</span></li>
+      </ol>
+
+      <hr>
+
+      <!-- التغذية -->
+      <h2 class="section-title">Nutrition</h2>
+      <p class="nutrition-note">The table below shows nutritional values per serving without the additional fillings.</p>
+      <table>
+        <tr>
+          <td>Calories</td>
+          <td>277kcal</td>
+        </tr>
+        <tr>
+          <td>Carbs</td>
+          <td>0g</td>
+        </tr>
+        <tr>
+          <td>Protein</td>
+          <td>20g</td>
+        </tr>
+        <tr>
+          <td>Fat</td>
+          <td>22g</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+</body>
+</html>
