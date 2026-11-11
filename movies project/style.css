@@ -1,0 +1,36 @@
+body {
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stat-card {
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #593196;
+  color: white;
+}
+
+.movie-card {
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: translateY(-3px);
+}
+
+.badge-watched {
+  background-color: #198754;
+}
+
+.badge-unwatched {
+  background-color: #dc3545;
+}
